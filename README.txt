@@ -17,10 +17,10 @@ mathieu.buoro@inrae.fr
 Below is described the workflow:
 
 
-0. Install metaIbasam package v.0.0.6 through the .tar.gz file and define the directory in a terminal
+0. Install metaIbasam package v.0.0.6 through the .tar.gz file, define the directory in a terminal and create a "results" folder
 
-> cd /folder/Paper_spatial_structure_scripts
-
+> cd /folder/SpatialStructure
+> mkdir results
 
 1. Run the model for a defined scenario and number of simulations - launch simulations in a terminal:
 
