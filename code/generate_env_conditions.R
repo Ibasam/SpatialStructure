@@ -17,7 +17,7 @@ if (Diversity_env == FALSE) { # FOR SCN NO DIVERSITY
     env_new_false[[simul]]<-list(temperatures=env$temperatures, flow=env$flow, module=env$module)
     
   }
-  save(env_new_false,file=paste0("data/environmental_conditions_Diversity_FALSE_",nSIMUL,"simul.RData"))
+  save(env_new_false,file=paste0("data/environmental_conditions_Diversity_FALSE_nYears_",(nInit+nYears),"_",nSIMUL,"simul.RData"))
   
 } else { #FOR SCN REAL DIVERSITY
   env_new_true<-list()
@@ -27,7 +27,7 @@ if (Diversity_env == FALSE) { # FOR SCN NO DIVERSITY
     #env$flow[,14]<-env_new_false[[simul]]$flow[,14]
     env_new_true[[simul]]<-list(temperatures=env$temperatures, flow=env$flow, module=module)
   }
-  save(env_new_true,file=paste0("data/environmental_conditions_Diversity_TRUE_",nSIMUL,"simul.RData"))
+  save(env_new_true,file=paste0("data/environmental_conditions_Diversity_TRUE_nYears_",(nInit+nYears),"_",nSIMUL,"simul.RData"))
   
 }
 
