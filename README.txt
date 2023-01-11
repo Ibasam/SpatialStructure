@@ -4,7 +4,7 @@ It is the second application study using MetaIBASAM, a demo-genetic agent-based 
 
 MetaIbasam is an extension of the existing IBASAM model (https://github.com/Ibasam/IBASAM/wiki) by incorporating a dispersal process to describe Atlantic salmon metapopulation and its eco-evolutionary dynamics. MetaIBASAM allows an investigation of the consequences of dispersal on local populations and network dynamics at the demographic, phenotypic, and genotypic levels. More generally, it allows to explore eco-evolutionary dynamics by taking into account complex interactions between ecological and evolutionary processes (plasticity, genetic adaptation and dispersal), feedbacks (e.g. genetic <-> demography) and trade-offs (e.g. growth vs survival). By doing so, one can investigate responses to changing environments and alternative management strategies.
 
-In this study, we ran different scenarios of dispersal rates, spatial distribution of genetic diversity and spatial configuration of populations and looked at the evolutionary trajectories of local populations facing environmental change.
+In this study, we ran different scenarios of dispersal rates, spatial distribution of genetic diversity and spatial configuration of populations and looked at the evolutionary and demographic trajectories of local populations after a perturbation.
 
 ----
 

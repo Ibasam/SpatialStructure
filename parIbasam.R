@@ -115,8 +115,8 @@ rhoF<-0 # correlations flow fluctuations
 #3. if you want to use the same conditions for several scenarios
 # 3.1. generate them from the generate_env_conditions.R code for N simulations
 # 3.2. if already generated, load them from the data folder: env_new_false.Rdata & env_new_true.Rdata
-if (file.exists(paste0("data/environmental_conditions_Diversity_",Diversity_env,"_",last,"simul.RData"))) {
-  load(paste0("data/environmental_conditions_Diversity_",Diversity_env,"_",last,"simul.RData"))
+if (file.exists(paste0("data/environmental_conditions_Diversity_",Diversity_env,"_nYears_",(nInit+nYears),"_",last,"simul.RData"))) {
+  load(paste0("data/environmental_conditions_Diversity_",Diversity_env,"_nYears_",(nInit+nYears),"_",last,"simul.RData"))
 } else {
   source("code/generate_env_conditions.R")
 }
@@ -225,16 +225,16 @@ fishing.rates <- tmp
 #propG=rep(0,npop)
 #propTO=rep(0,npop)
 
-diversity_prop = c(0,0.1,0.15)
+diversity_prop = c(0,0.1,0.15,0.3)
 
 scenarioDiversityG = as.numeric(args[4]) #scn of genetic change at initialization
 scenarioDiversityTO = as.numeric(args[5]) #scn of growth survival trade-off parameter sigRIV change
 
-
 if (scenarioDiversityG == 1) { #no diversity - all pops at +0.15
   propG <- seq(from = diversity_prop[scenarioDiversityG], to = -diversity_prop[scenarioDiversityG], length.out = 15) + 0.15
 } else {
-  propG <- seq(from = diversity_prop[scenarioDiversityG], to = -diversity_prop[scenarioDiversityG], length.out = 15) #gradient of diversity
+  propG <- seq(from = diversity_prop[scenarioDiversityG], to = 0, length.out = 15) #gradient of diversity div from 0 to 30
+  #propG <- seq(from = diversity_prop[scenarioDiversityG], to = -diversity_prop[scenarioDiversityG], length.out = 15) #gradient of diversity
 }
 
 propTO <- seq(from = diversity_prop[scenarioDiversityTO], to = -diversity_prop[scenarioDiversityTO], length.out = 15)
