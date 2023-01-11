@@ -237,7 +237,7 @@ Ibasam <-
           #y c'est le numéro de l'année en incluant celles de burnin 
           #pstray <- c(0.1,0.1)
           if (y<= nInit) {
-            emmigrants(emfile,0) #no dispersal during initialization phase #edit mbuoro
+            emmigrants(emfile, pstray[Pop.e]) #emmigrants(emfile,0) #no dispersal during initialization phase #edit mbuoro
           } else {
             emmigrants(emfile, pstray[Pop.e])
           }
