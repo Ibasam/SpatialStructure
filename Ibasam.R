@@ -61,7 +61,7 @@ Ibasam <-
     def$colParam[67] <- heriSEA
     
     
-    # Genetic traits at initialization - al - 12/02/2021
+    # Genetic traits at initialization (mean) - al - 12/02/2021
     def$colParam[61] <- log(exp(def$colParam[61]) * (1+ propG))#gMean # Growth in river ; gMean
     def$colParam[65] <- log(exp(def$colParam[65]) * (1+ propG))#gMean # Growth at sea ; gGmeanSea
     def$colParam[69] <- def$colParam[69] * (1+ propG)#LmidSm           ->Norm reaction smoltification
@@ -70,6 +70,16 @@ Ibasam <-
     def$colParam[83] <- def$colParam[83] * (1+ propG)#anadMalesTreshold #Fmid[2] threshold of salmon males
     def$colParam[86] <- def$colParam[86] * (1+ propG)#anadFemalesTreshold #Fmid[3] threshold of salmon females
     
+    # Genetic traits at initialization (sd) - al - 13/07/2023.- for no diversity scenario only
+    scenarioDiversityG = as.numeric(args[4])
+    if (scenarioDiversityG == 1) { #no diversity
+      def$colParam[62] <- 0.22 #gGsd        small variance at start -> estimated
+      def$colParam[66] <- 0.22 #gGsdSea     small variance at start -> estimated
+      def$colParam[78] <- 0.66 #Fmid_sd[0] threshold_sd of parr males
+      def$colParam[81] <- 6.22 #Fmid_sd[1] threshold sd of parr females
+      def$colParam[84] <- 40.2 #alphaF[2] threshold sd of salmon males
+      def$colParam[87] <- 75.4 #alphaF[3] threshold sd of salmon females
+    }
     
     #on retrouve l'aire et la proportion d'aire un peu partout, alors il faut aussi les changer
     #c'est en fait ce qui a été fait ici
