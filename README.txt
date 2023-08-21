@@ -73,7 +73,7 @@ Run the R code in the file "FIGURES.R" in the "code" folder.
  mv /folder/results/ /another_folder/results/
  mv /folder/results/PHENO* /folder/results/PHENOTYPE/
  
- 
+
 
  
  
