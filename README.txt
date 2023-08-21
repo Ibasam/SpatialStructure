@@ -9,7 +9,7 @@ In this study, we ran different scenarios of dispersal rates, spatial distributi
 ----
 
 Contacts: 
-amaia.lamarins@inrae.fr 
+amaia.lamarins@helsinki.fi
 mathieu.buoro@inrae.fr
 
 ----
@@ -24,13 +24,13 @@ Below is described the workflow:
 
 1. Run the model for a defined scenario and number of simulations - launch simulations in a terminal:
 
-> Rscript --vanilla metaIbasam.R 1 0 3 3 1 1 1 1 1 50 &
+> Rscript --vanilla metaIbasam.R 1 0 3 4 1 1 1 1 1 50 &
 
 Arguments:
 #1: scenarioConnect (e.g. 1 for 0 dispersal)
 #2: scenarioFishing (e.g. 0 for fishing all populations)
 #3: scenarioFishingrates (e.g. 3 for fishing at 7% 1SW and 15% MSW)
-#4: scenarioDiversityG (e.g. 3 for a 15% change in the mean of traits distribution at initialization, 1 for no diversity at all)
+#4: scenarioDiversityG (e.g. 1 for no diversity among populations (same 15% change in the mean of traits distribution at initialization), and 4 for diversity (range 0%-30%))
 #5: scenarioDiversityTO (e.g. 1 for a 0% change in the growth-survival trade-off parameter)
 #6: scenarioDiversityStruct (e.g. 1 for a gradual distribution of genetic traits distributions across populations, 2 for a random distribution)
 #7: scenarioDist (e.g. 1 for equal distance between populations, 2 for variation)
@@ -44,7 +44,7 @@ Each scenario (combination of arguments 1-8) has its own temporary folder and re
 2. To launch simulations at a specific hour (using the linux package "at"):
 # at: could be today, tomorrow,... friday,...
 > at 04:00am tomorrow
-> pkill -9 -u mbuoro R
+> pkill -9 -u username R
 > Rscript --vanilla metaIbasam.R 1 0 3 3 1 1 1 1 1 50 &
 > Rscript --vanilla metaIbasam.R 2 0 3 3 1 1 1 1 1 50 &
 > Rscript --vanilla metaIbasam.R 3 0 3 3 1 1 1 1 1 50 &
