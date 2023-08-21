@@ -7,7 +7,7 @@ if (length(args)==0){
 }
 
 
-dir_results <- "/yourfolder/results/"
+dir_results <- "results/"
 
 #_________________ PACKAGES _________________#
 library(fst)
@@ -25,7 +25,6 @@ res_adult <- list()
 
 # SCENARIOS
 iEXPE <- args
-#EXPE <- c(110, 210,220)#,120,123,124, 310, 320, 323, 324)
 
 #for (iEXPE in EXPE){ # Loop over scenario 
 
@@ -49,11 +48,7 @@ iEXPE <- args
       # Remove initial values
       demo <- NULL
       demo <- subset(df, Pop==pop)
-      #demo <- demo[demo$year>nInit,]
-      #demo$year	<- demo$year - nInit
-      
-      #id <- which((demo$Atsea==0)&(demo$AgeSea>0)&(demo$date==273)&(demo$Returns==1))
-      #id <- which(demo$Returns==1)
+
       id <- which(demo$Returns==1 & demo$date==273 & demo$Atsea==0) #1SW & MSW
       
       adult <- data.frame(ID = demo$ID[id]
@@ -116,9 +111,6 @@ iEXPE <- args
   
 
 ### Save results
-#save(nReturns, Imm, PE, Exploitation, file="results/DEMOGRAPHY0.RData")
-#save(nParr,nSmolt,nReturns, Mig, LFParr,LFSmolt,LFReturns,fishing.rates,nExploitation,file=paste0(dir_results,"DEMOGRAPHY",iEXPE,".RData"))
-#save(res_1SW,res_MSW,res_smolt,file=paste0(dir_results,"PHENOGENOTYPE",iEXPE,".RData"))
-save(res_adult,file=paste0(paste0(dir_results,"FITNESS/"),"FITNESS",iEXPE,"_50.RData"))
+save(res_adult,file=paste0(dir_results,"FITNESS",iEXPE,"_50.RData"))
 
 q('no')

@@ -3,7 +3,6 @@
 #DIR="results/" # directory where to save results
 #cd $DIR
 
-#nSIMUL=10 # Nb simulations 100
 
 # SIMULATION
 echo "BEGINNING OF SIMULATIONS"
@@ -11,8 +10,7 @@ echo "PID du processus courant : $$"
 STARTTIME=$(date +%s);
 
 
-#scn=(70331111 70331211 70331212 70331221 70331222) #example
-scn=(10311111)
+scn=(10311111 10341111 10341211 10341222) #example
 
 for s in "${scn[@]}"
 do

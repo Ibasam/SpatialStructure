@@ -7,7 +7,7 @@ if (length(args)==0){
 }
 
 
-dir_results <- "/yourfolder/results/"
+dir_results <- "results/"
 
 #_________________ PACKAGES _________________#
 library(fst)
@@ -27,7 +27,6 @@ res_smolt <- list()
 
 # SCENARIOS
 iEXPE <- args
-#EXPE <- c(110, 210,220)#,120,123,124, 310, 320, 323, 324)
 
 #for (iEXPE in EXPE){ # Loop over scenario 
 
@@ -53,11 +52,7 @@ iEXPE <- args
       # Remove initial values
       demo <- NULL
       demo <- subset(df, Pop==pop)
-      #demo <- demo[demo$year>nInit,]
-      #demo$year	<- demo$year - nInit
-      
-      #id <- which((demo$Atsea==0)&(demo$AgeSea>0)&(demo$date==273)&(demo$Returns==1))
-      #id <- which(demo$Returns==1)
+
       id <- which(demo$Returns==1 & demo$AgeSea<2 & demo$date==273 & demo$Atsea==0) #1SW
      # id2 <- which(demo$Returns==1 & demo$AgeSea>=2 & demo$date==273 & demo$Atsea==0) #MSW
  #     id3 <- which(demo$Smolt==1 & demo$date == 90) #smolt
@@ -81,6 +76,7 @@ iEXPE <- args
                         , pG = demo$pG[id]
                         #, pG_sea = demo$pG_sea[id]
                         #, W = demo$W[id]
+                        #, Fat = demo$Fat[id]
 
       )
       
@@ -102,7 +98,8 @@ iEXPE <- args
       #                   #, fatherID = demo$fatherID[id2]
       #                   , pG = demo$pG[id2]
       #                   #, pG_sea = demo$pG_sea[id2]
-      #                   #, W = demo$W[id2]
+      #                   , W = demo$W[id2]
+      #                   , Fat = demo$Fat[id2]
       # 
       # )
       # 
@@ -135,9 +132,6 @@ iEXPE <- args
   
 
 ### Save results
-#save(nReturns, Imm, PE, Exploitation, file="results/DEMOGRAPHY0.RData")
-#save(nParr,nSmolt,nReturns, Mig, LFParr,LFSmolt,LFReturns,fishing.rates,nExploitation,file=paste0(dir_results,"DEMOGRAPHY",iEXPE,".RData"))
-#save(res_1SW,res_MSW,res_smolt,file=paste0(dir_results,"PHENOGENOTYPE",iEXPE,".RData"))
 save(res_1SW,file=paste0(dir_results,"PHENOGENOTYPE",iEXPE,"_50.RData"))
 #save(res_MSW,file=paste0(dir_results,"PHENOGENOTYPE",iEXPE,"_MSW_50.RData"))
 
